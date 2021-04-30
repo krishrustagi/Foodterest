@@ -1,8 +1,8 @@
-# final_project
+# Foodterest
 
-A new Flutter project.
+Pinterest Clone for food built using Flutter and hosted on Firebase.
 
-## Getting Started
+## Getting Started with flutter
 
 This project is a starting point for a Flutter application.
 
