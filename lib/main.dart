@@ -57,6 +57,9 @@ class _CreateAppState extends State<CreateApp> {
               textColor: Colors.white,
               onPressed: () => {},
             ),
+            Padding(
+              padding: EdgeInsets.all(5.0),
+            ),
             FlatButton(
               height: 50,
               child: Text(
@@ -146,14 +149,11 @@ class _CreateAppState extends State<CreateApp> {
                       fit: BoxFit.fill,
                       image: AssetImage(images[index])),
                 ),
-                child: new Column(
+                child: new Stack(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 7.0),
-                    ),
-                    // Padding(padding: EdgeInsets.only())
-                    Align(
-                        alignment: Alignment.topRight,
+                    Positioned(
+                        top: 7.0,
+                        right: 7.0,
                         child: ElevatedButton(
                             onPressed: () {},
                             child: Text("Save"),
@@ -168,57 +168,54 @@ class _CreateAppState extends State<CreateApp> {
                                             BorderRadius.circular(18.0),
                                         side:
                                             BorderSide(color: Colors.red)))))),
-                    Expanded(
-                      child: Align(
-                          alignment: Alignment.bottomRight,
-                          child: Row(
-                            children: <Widget>[
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(right: 7.0, bottom: 50),
+                    Positioned(
+                      bottom: 7.0,
+                      left: 7.0,
+                      child: CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Colors.white,
+                        child: IconButton(
+                          iconSize: 18,
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.link,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 7.0,
+                      right: 7.0,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 18,
+                            backgroundColor: Colors.white,
+                            child: IconButton(
+                              iconSize: 18,
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.share,
                               ),
-                              CircleAvatar(
-                                radius: 15,
-                                backgroundColor: Colors.white,
-                                child: IconButton(
-                                  iconSize: 15,
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.link,
-                                  ),
-                                ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 5.0),
+                          ),
+                          CircleAvatar(
+                            radius: 18,
+                            backgroundColor: Colors.white,
+                            child: IconButton(
+                              iconSize: 18,
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.more_horiz_outlined,
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(right: 130.0),
-                              ),
-                              CircleAvatar(
-                                radius: 15,
-                                backgroundColor: Colors.white,
-                                child: IconButton(
-                                  iconSize: 15,
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.share,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(right: 7.0),
-                              ),
-                              CircleAvatar(
-                                radius: 15,
-                                backgroundColor: Colors.white,
-                                child: IconButton(
-                                  iconSize: 15,
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_horiz_outlined,
-                                  ),
-                                ),
-                              )
-                            ],
-                          )),
-                    )
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 )),
             onHover: (event) {},
@@ -231,7 +228,7 @@ class _CreateAppState extends State<CreateApp> {
             ),
           ),
           staggeredTileBuilder: (int index) =>
-              new StaggeredTile.count(2, index.isEven ? 2 : 1),
+              new StaggeredTile.count(2, (index % 4 == 0) ? 1 : 2),
           mainAxisSpacing: 8.0,
           crossAxisSpacing: 8.0,
         ));
